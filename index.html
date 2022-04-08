@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Todo-App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TodoApp</a>
+    </div>
+  </nav>
+  <div class="formbox">
+    
+    <form action="todo.html" onsubmit="return validateform()" class="form1">
+      <h4 id="login">Log-in</h4>
+         <input type="text" placeholder="Username"class="uinputfield" name="username" id='un'>
+         <span class="inputfield" >Username is admin.</span>
+         <input type="password" name="password" class="uinputfield" placeholder="Password"  id='pw'>
+         <span class="inputfield">Password is 12345.</span>
+        <input type="submit" value="Login" class="btinputfield" id="button" />
+        <br>
+        <br>
+        <span id="f"></span>
+        </form>
+      </div>
+<script>
+
+
+let button = document.getElementById('button')
+let name,password,message
+
+button.addEventListener('click',(e) => {
+  
+  name = document.getElementById('un').value
+
+  password = document.getElementById('pw').value
+
+  let message = (alertmessage) => {
+    document.getElementById("f").textContent += alertmessage;
+  }
+  validateform(name,password,message)
+ 
+ 
+})
+let validateform = (name,password,callback) => {
+    if(document.getElementById("un").value == 'admin' && document.getElementById("pw").value == '12345' ){
+        callback("Login successful");
+        return true;
+    }else 
+    {
+        return false;
+    }
+}
+
+</script>
+
+
+
+</body>
+</html>
